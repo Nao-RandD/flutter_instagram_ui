@@ -1,16 +1,9 @@
-# instagram_ui
+# InstagramのUI再現
 
-A new Flutter application.
+FlutterでInstagramのUIを再現してみる。
+![Screenshot_1645607259](https://user-images.githubusercontent.com/72324850/155289726-1d6f0e29-7573-4aeb-9098-1b4e9cca4b35.png)
 
-## Getting Started
+## 内容
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- ユーザー操作によるアクションは設定しない
+- 見た目のみを考慮してすすめる

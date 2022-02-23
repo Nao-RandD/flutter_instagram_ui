@@ -39,11 +39,23 @@ class HomePage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             label: "reel",
-            icon: Icon(Icons.video_call),
+            icon: Icon(Icons.ondemand_video_rounded),
           ),
           BottomNavigationBarItem(
             label: "shop",
-            icon: Icon(Icons.shop_outlined),
+            icon: Icon(Icons.shopping_bag_outlined),
+          ),
+          BottomNavigationBarItem(
+            label: "mypage",
+            icon:  Container(
+              width: 40.0,
+              height: 40.0,
+              padding: const EdgeInsets.all(3.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100.0),
+                child: Image.asset('assets/users/icon.png'),
+              ),
+            ),
           ),
         ],
       ),
@@ -66,13 +78,19 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       Icon(
-                        Icons.add,
+                        Icons.add_box_outlined,
                         color: Colors.white,
                         size: 20.0,
                       ),
                       const SizedBox(width: 8.0),
+                      Image.asset(
+                        'assets/heart.png',
+                        color: Colors.white,
+                        height: 20.0,
+                      ),
+                      const SizedBox(width: 8.0),
                       Icon(
-                        Icons.send,
+                        Icons.send_outlined,
                         color: Colors.white,
                         size: 20.0,
                       ),
@@ -199,8 +217,9 @@ class Post extends StatelessWidget {
   final String userImage;
   final String userName;
   final String image;
+  String musicName = 'music・オリジナル音源';
 
-  const Post({
+  Post({
     Key key,
     this.userName,
     this.userImage,
@@ -231,12 +250,25 @@ class Post extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text(
-                    userName,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        userName,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(
+                        musicName,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 10.0,
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -298,7 +330,7 @@ class Post extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
           child: Text(
-            "ほげほげほげほげ",
+            "いいね！: naoRandD、他",
             style: TextStyle(
               color: Colors.white,
             ),
@@ -307,10 +339,30 @@ class Post extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
           child: Text(
-            "ふがふがふがふが...",
+            "ほげほげほげほげ",
             style: TextStyle(
               color: Colors.white,
             ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+          child: Row(
+            children: [
+              Text(
+                "ふがふがふがふが...",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(width: 5),
+              Text(
+                "続きを読む",
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+            ],
           ),
         ),
         Padding(
@@ -325,7 +377,7 @@ class Post extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
           child: Text(
-            "21 minutes ago",
+            "21分前",
             style: TextStyle(
               color: Colors.white.withOpacity(0.75),
               fontSize: 10.0,
