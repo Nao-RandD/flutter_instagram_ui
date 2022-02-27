@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // Debugとアプリ右上に表示されるものを非表示にする
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -50,7 +51,9 @@ class HomePage extends StatelessWidget {
             icon:  Container(
               width: 40.0,
               height: 40.0,
+              // EdgeInsets.allは上下左右に余白を作りたい場合に使用する
               padding: const EdgeInsets.all(3.0),
+              // 画像などのコンテンツの角を丸くした場合に便利なClipRRectで画像をラップする
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100.0),
                 child: Image.asset('assets/users/icon.png'),
@@ -59,10 +62,14 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      // SafeAreaを使用するとOSに関わらず適切な領域にWidgetを収めてくれる
+      // (iPhone XRなどのノッチがあるタイプに対応できる)
+      // Scaffoldのbodyでラップするのが一番簡単で公式でも紹介がある
       body: SafeArea(
         child: Column(
           children: [
             Row(
+              // 開始と終了にはスペースを開けないために.spaceBetweenとしている
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
@@ -103,6 +110,8 @@ class HomePage extends StatelessWidget {
               height: 130,
               child: Padding(
                 padding:
+                // 水平方向と垂直方向に余白。下記と同義
+                // const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 16.0, right: 16.0),）
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -142,10 +151,13 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            // 区切り線をContainerで表現している
             Container(
               height: 2.0,
               color: Colors.white.withOpacity(0.2),
             ),
+            // 残りのスペースにドーンと広げるためにExpanded
+            
             Expanded(
                 child: ListView(
                   children: [
